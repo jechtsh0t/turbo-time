@@ -5,6 +5,7 @@
 //  Copyright © 2022 Brook Street Games. All rights reserved.
 //
 
+import AVKit
 import SwiftUI
 
 ///
@@ -22,7 +23,7 @@ struct EventView: View {
         VStack(spacing: 24) {
             titleView
                 .foregroundColor(.text)
-            imageView
+            videoView
             eventTextView
             Spacer()
             nextButton
@@ -44,11 +45,13 @@ extension EventView {
             .bold()
     }
     
-    private var imageView: some View {
-        Image("Howard")
-            .resizable()
-            .aspectRatio(1, contentMode: .fit)
+    private var videoView: some View {
+        VideoPlayer(player: viewModel.videoPlayer)
+            .aspectRatio(752/416, contentMode: .fit)
             .cornerRadius(24)
+            .onDisappear {
+                viewModel.videoPlayer.pause()
+            }
     }
     
     private var eventTextView: some View {

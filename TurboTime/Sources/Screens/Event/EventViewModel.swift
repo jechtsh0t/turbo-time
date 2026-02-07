@@ -5,6 +5,7 @@
 //  Copyright © 2025 Brook Street Games. All rights reserved.
 //
 
+import AVKit
 import BSGAppBasics
 import SwiftUI
 
@@ -19,14 +20,18 @@ final class EventViewModel: ViewModel {
     private var remainingEvents: [Event]
     let screenState: ScreenState = .idle
     
-    var titleText: String { currentEvent == nil ? "Turbo Time!" : "Event #\(eventNumber)" }
+    var buttonText: String { currentEvent == nil ? "Start" : "Next" }
     var eventText: Text {
         guard let event = currentEvent else {
             return Text("Press start to begin the events!").foregroundColor(.text)
         }
         return buildDisplayText(for: event)
     }
-    var buttonText: String { currentEvent == nil ? "Start" : "Next" }
+    var titleText: String { currentEvent == nil ? "Turbo Time!" : "Event #\(eventNumber)" }
+    var videoPlayer: AVPlayer = {
+        let url = Bundle.main.url(forResource: "Liz", withExtension: "mp4")!
+        return AVPlayer(url: url)
+    }()
     
     // MARK: - Dependencies -
     
@@ -54,7 +59,18 @@ final class EventViewModel: ViewModel {
 extension EventViewModel {
     
     func screenAppeared() {
-        audioService.play("TurboTime")
+        videoPlayer.play()
+        NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: videoPlayer.currentItem,
+            queue: .main
+        ) { _ in
+            Task { @MainActor in
+                self.videoPlayer.isMuted = true
+                self.videoPlayer.seek(to: .zero)
+                self.videoPlayer.play()
+            }
+        }
     }
     
     func buttonSelected() {

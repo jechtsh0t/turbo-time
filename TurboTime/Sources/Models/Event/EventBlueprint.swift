@@ -50,88 +50,96 @@ extension EventBlueprint {
         // Points
         
         EventBlueprint(
-            text: "The leader gets caught stealing Ted’s present for Johnny. It was nestled safely under the tree. Lose one point.",
+            text: "It's a sick world we're living in with sick people. The leader loses a point.",
+            type: .repeatable(.low)
+        ),
+        EventBlueprint(
+            text: "[player] is a lucky, lucky girl. Gain one point.",
             type: .repeatable(.medium)
         ),
         EventBlueprint(
-            text: "You found the last Turbo Man at Toy Land. [player] gains one point.",
+            text: "Oh no kids! It's Turbo Man's arch enemy... [player]. Lose one point.",
             type: .repeatable(.medium)
         ),
         EventBlueprint(
-            text: "Oh no!! [player] has been caught by the Demon Team. Lose one point.",
-            type: .repeatable(.medium)
-        ),
-        EventBlueprint(
-            text: "Liz lets you drive her and Jamie to the parade after Howard destroys your house. The person in last place gets one point.",
-            type: .repeatable(.medium)
+            text: "The doctor said the loser actuallly showed some brain actvity this morning... heh. Gain a point.",
+            type: .repeatable(.low)
         ),
         
-        // Slowdowns
+        // Stalls
         
         EventBlueprint(
-            text: "Shit! A flat tire. The leader can not drink until the next round.",
+            text: "The leader will get a turbo man... eventually. No drinks until the next round.",
             type: .repeatable(.medium)
         ),
         EventBlueprint(
-            text: "You’ve been caught driving around traffic on the way to your son’s karate class. Officer Hummel detains [player] and he cannot drink until the start of the next round.",
+            text: "Can't bench press your way out of this one [player]. No drinks until the next round.",
             type: .repeatable(.medium)
         ),
         
         // Minigames
         
         EventBlueprint(
-            text: "[player] vs [player] in one cup beer pong. Loser is Mr. Ponytail man and the winner gets one point.",
+            text: "[player] and [player] shoot one cup beer pong. The winner is not a pervert.",
+            type: .repeatable(.high)
+        ),
+        EventBlueprint(
+            text: "Wow... this... is really cool. [player] and [player] flip cups.",
+            type: .repeatable(.high)
+        ),
+        EventBlueprint(
+            text: "Ted is on the roof. [player] and [player] throw quarters to knock his ass off.",
+            type: .repeatable(.high)
+        ),
+        EventBlueprint(
+            text: "They have a turbo man at KQRS! [player] and [player] chug off to see who gets the D.O.L.L.",
             type: .repeatable(.medium)
         ),
         EventBlueprint(
-            text: "The toy store opens in two minutes. [player] and [player] battle in flip cup for the Turbo Man. Loser gets boosta.",
-            type: .repeatable(.medium)
+            text: "[player] and [player] slap cups. The loser's father gets laid off.",
+            type: .repeatable(.high)
         ),
         EventBlueprint(
-            text: "Ted is on the roof. First one of [player] and [player] to knock his ass off with a quarter gets a point.",
-            type: .repeatable(.medium)
-        ),
-        EventBlueprint(
-            text: "Strap in and guzzle up. It's turbo time! [player] vs [player] in a chug off.",
-            type: .repeatable(.medium)
-        ),
-        EventBlueprint(
-            text: "I'm gonna deck your halls bub. Slap off between [player] and [player]",
+            text: "Turbo Man... use your jetpack! [player] and [player] speed roll.",
             type: .repeatable(.medium)
         ),
         EventBlueprint(
             randomNumberRange: 1...24,
-            text: "Ted says you don't know shit [player]. Answer question number [number].",
-            type: .repeatable(.medium)
+            text: "What are you Dan Rather? What is this 60 minutes? What are you the question king, huh? Chill [player]. Answer question number [number].",
+            type: .repeatable(.high)
+        ),
+        EventBlueprint(
+            text: "[player] is gonna deck your halls, [player]. Wager up to three points in any game.",
+            type: .repeatable(.low)
         ),
         
         // Beer Swap
         
         EventBlueprint(
-            text: "Restock at toy town! All players can take a beer from the fridge.",
+            text: "They got a late delivery of Turbo Man at Toy Works! All players can take a beer from the fridge.",
+            type: .repeatable(.low)
+        ),
+        EventBlueprint(
+            text: "He got two! [player] can steal a beer from anybody.",
             type: .repeatable(.medium)
         ),
         EventBlueprint(
-            text: "He got two!! [player] can steal a beer from anybody or take from da fridge!",
-            type: .repeatable(.medium)
+            text: "Put that cookie down! Now! [player] must drop their beer for no points.",
+            type: .repeatable(.low)
         ),
         EventBlueprint(
-            text: "A bomb? Swap one of your beers with someone else. Here’s to you [player]!",
-            type: .repeatable(.medium)
+            text: "[player] is my number one customer. Take a beer from the fridge.",
+            type: .repeatable(.high)
         ),
         EventBlueprint(
-            text: "You missed karate class again. [player] can take a beer of choice from the fridge.",
-            type: .repeatable(.medium)
-        ),
-        EventBlueprint(
-            text: "Ted is trying to pull a houdini on Liz. [player] can swap their stash with a player of their choice.",
-            type: .repeatable(.medium)
+            text: "Ted is trying to pull a houdini on Liz. [player] and [player] swap stashes.",
+            type: .repeatable(.low)
         ),
         
         // Special
         
         EventBlueprint(
-            text: "It's the Craft special. %@, %@, and %@ will do something cool!",
+            text: "[player], [player], and [player] form an orderly line, so that an employee can hand you a colored ball to see who gets a point.",
             type: .timed(TimeInterval(28.minutes), false)
         )
     ]
