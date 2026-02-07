@@ -132,14 +132,14 @@ extension EventBlueprint {
             type: .repeatable(.high)
         ),
         EventBlueprint(
-            text: "Ted is trying to pull a houdini on Liz. [player] can swap their stash with anybody.",
+            text: "Ted is trying to pull a houdini on Liz. [player] and [player] swap stashes.",
             type: .repeatable(.low)
         ),
         
         // Special
         
         EventBlueprint(
-            text: "[player], [player], and [player] pick from the bag. Someone gets a harmless christmas package and someone gets... a bomb?.",
+            text: "[player], [player], and [player] form an orderly line, so that an employee can hand you a colored ball to see who gets a point.",
             type: .timed(TimeInterval(28.minutes), false)
         )
     ]
